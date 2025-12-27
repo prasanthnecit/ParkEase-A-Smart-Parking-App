@@ -1,0 +1,70 @@
+.home-page {
+    padding: 50px;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #4a148c;
+}
+
+/* Cards container */
+.home-actions-large {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Card base */
+.home-card {
+    width: 260px;
+    height: 140px;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* NORMAL (light) violet style — USED FOR BOTH */
+.violet-outline {
+    border: 2px solid #6a1b9a;
+    color: #6a1b9a;
+    background: white;
+}
+
+.violet-outline p {
+    color: #6a1b9a;
+}
+
+.violet-outline:hover {
+    background-color: #ede7f6;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Profile section */
+.profile-section {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.profile-section h3 {
+    margin-bottom: 15px;
+    color: #4a148c;
+}
+
+.profile-row {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
