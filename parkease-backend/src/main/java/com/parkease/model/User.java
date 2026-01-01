@@ -30,7 +30,7 @@ public class User {
     private LocalDateTime createdAt;
 
     public User() {
-        this.role = "USER";
+        this.role = "ROLE_USER";
         this.createdAt = LocalDateTime.now();
     }
 

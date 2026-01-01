@@ -9,4 +9,6 @@ public interface ParkingSlotRepository
         extends MongoRepository<ParkingSlot, String> {
 
     List<ParkingSlot> findByAreaId(String areaId);
+    boolean existsByAreaIdAndSlotCode(String areaId, String slotCode);
+
 }

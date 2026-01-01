@@ -43,4 +43,19 @@ public class AuthController {
                 "type", "Bearer"
         );
     }
+
+    @PostMapping("/admin/signup")
+    public String adminSignup(@RequestBody Map<String, String> request) {
+
+        authService.registerAdmin(
+                request.get("name"),
+                request.get("email"),
+                request.get("phoneNumber"),
+                request.get("password")
+        );
+
+
+        return "Admin registered successfully";
+    }
+
 }

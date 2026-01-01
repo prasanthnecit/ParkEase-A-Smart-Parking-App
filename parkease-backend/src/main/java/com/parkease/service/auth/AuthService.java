@@ -59,4 +59,29 @@ public class AuthService {
 
         return jwtUtil.generateToken(user.getEmail(), user.getRole());
     }
+
+    public void registerAdmin(String name,
+                              String email,
+                              String phoneNumber,
+                              String password) {
+
+        if (userRepository.findByEmail(email).isPresent()) {
+            throw new RuntimeException("Email already exists");
+        }
+
+        User admin = new User();
+        admin.setName(name);
+        admin.setEmail(email);
+        admin.setPhoneNumber(phoneNumber);
+        admin.setPassword(passwordEncoder.encode(password));
+        admin.setRole("ROLE_ADMIN");
+
+
+        // explicitly null for safety
+        admin.setVehicleType(null);
+        admin.setVehicleNumber(null);
+
+        userRepository.save(admin);
+    }
+
 }
