@@ -49,4 +49,12 @@ public class BookingController {
 
         return "Booking confirmed";
     }
+
+    @GetMapping
+    public List<Booking> getMyBookings() {
+
+        String userEmail = SecurityUtil.getCurrentUserIdentifier();
+
+        return bookingRepository.findByUserId(userEmail);
+    }
 }

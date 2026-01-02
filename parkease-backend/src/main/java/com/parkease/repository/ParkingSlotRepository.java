@@ -11,4 +11,7 @@ public interface ParkingSlotRepository
     List<ParkingSlot> findByAreaId(String areaId);
     boolean existsByAreaIdAndSlotCode(String areaId, String slotCode);
 
+    long countByActiveTrue();
+
+    long countByActiveFalse();
 }
