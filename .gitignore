@@ -1,3 +1,4 @@
+#Git Ignore
 # IDE files
 .idea/
 .vscode/
@@ -10,6 +11,6 @@ parkease-backend/target/
 parkease-frontend/node_modules/
 parkease-frontend/build/
 
-# OS files
+# OS files 
 .DS_Store
 Thumbs.db
