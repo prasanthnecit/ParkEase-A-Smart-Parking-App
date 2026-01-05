@@ -1,19 +1,23 @@
-import { NavLink } from "react-router-dom";
-import "./AdminSidebar.css";
+import { Link } from "react-router-dom";
+import { logout } from "../../utils/auth";
 
-function AdminSidebar() {
+export default function AdminSidebar() {
     return (
-        <aside className="admin-sidebar">
-            <h2 className="admin-title">Admin Panel</h2>
+        <div style={{
+            width: 220,
+            background: "#5b2be0",
+            color: "#fff",
+            padding: 20,
+            minHeight: "100vh"
+        }}>
+            <h3>Admin</h3>
 
-            <nav>
-                <NavLink to="/admin" end>Dashboard</NavLink>
-                <NavLink to="/admin/areas">Areas</NavLink>
-                <NavLink to="/admin/bookings">Bookings</NavLink>
-                <NavLink to="/admin/stats">Statistics</NavLink>
+            <nav style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <Link to="/admin/dashboard" style={{ color: "#fff" }}>Dashboard</Link>
+                <Link to="/admin/areas" style={{ color: "#fff" }}>Areas</Link>
+                <Link to="/admin/bookings" style={{ color: "#fff" }}>Bookings</Link>
+                <button onClick={logout}>Logout</button>
             </nav>
-        </aside>
+        </div>
     );
 }
-
-export default AdminSidebar;

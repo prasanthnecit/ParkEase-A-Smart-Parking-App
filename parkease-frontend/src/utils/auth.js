@@ -1,19 +1,12 @@
-// src/utils/auth.js
+export function setToken(token) {
+    localStorage.setItem("token", token);
+}
 
-const TOKEN_KEY = "parkease_token";
+export function getToken() {
+    return localStorage.getItem("token");
+}
 
-export const setToken = (token) => {
-    localStorage.setItem(TOKEN_KEY, token);
-};
-
-export const getToken = () => {
-    return localStorage.getItem(TOKEN_KEY);
-};
-
-export const logout = () => {
-    localStorage.removeItem(TOKEN_KEY);
-};
-
-export const isAuthenticated = () => {
-    return !!getToken();
-};
+export function logout() {
+    localStorage.removeItem("token");
+    window.location.href = "/admin/login";
+}

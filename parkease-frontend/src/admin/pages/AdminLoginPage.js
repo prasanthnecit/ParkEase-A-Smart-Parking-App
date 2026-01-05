@@ -1,47 +1,45 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 import { setToken } from "../../utils/auth";
 
-function AdminLoginPage() {
+export default function AdminLoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const login = async (e) => {
         e.preventDefault();
 
-        const res = await axios.post(
-            "http://localhost:8080/api/auth/login",
-            { email, password }
-        );
+        const res = await api.post("/auth/login", {
+            email,
+            password
+        });
 
         setToken(res.data.token);
-
-        // ✅ IMPORTANT
-        navigate("/admin");
+        navigate("/admin/dashboard");
     };
 
     return (
-        <form onSubmit={handleLogin}>
+        <div style={{ padding: 40 }}>
             <h2>Admin Login</h2>
 
-            <input
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
+            <form onSubmit={login}>
+                <input
+                    placeholder="Email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                /><br /><br />
 
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                /><br /><br />
 
-            <button type="submit">Login</button>
-        </form>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     );
 }
-
-export default AdminLoginPage;
