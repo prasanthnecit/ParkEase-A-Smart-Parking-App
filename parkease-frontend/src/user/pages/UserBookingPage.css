@@ -1,0 +1,60 @@
+/* Page container */
+.parking-container {
+    padding: 10px;
+}
+
+/* Heading */
+.parking-container h2 {
+    color: #4a148c;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Grid layout */
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Parking card */
+.parking-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Violet border accent */
+.violet-outline {
+    border: 2px solid #7b2cbf;
+}
+
+/* Hover effect */
+.parking-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(123, 44, 191, 0.25);
+}
+
+/* Area name */
+.parking-card h3 {
+    color: #4a148c;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+/* Location text */
+.parking-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* Action hint */
+.action-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #7b2cbf;
+}

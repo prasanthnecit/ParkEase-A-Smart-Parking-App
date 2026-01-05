@@ -1,0 +1,124 @@
+/* Page container */
+.page {
+    padding: 20px;
+}
+
+.page h2 {
+    color: #4a148c;
+    margin-bottom: 20px;
+}
+
+/* Slots grid */
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* Slot cards */
+.slot-card {
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slot-card h4 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.slot-card p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Available slot */
+.slot-available {
+    background: linear-gradient(135deg, #e0aaff, #c77dff);
+    color: #2d033b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slot-available:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Booked slot */
+.slot-booked {
+    background-color: #e0e0e0;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Booking card */
+.booking-card {
+    max-width: 420px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.booking-card h3 {
+    color: #4a148c;
+    margin-bottom: 16px;
+}
+
+/* Form elements */
+.booking-card label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.booking-card input,
+.booking-card select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Actions */
+.booking-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.booking-actions button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Confirm */
+.booking-actions button:first-child {
+    background-color: #7b2cbf;
+    color: white;
+}
+
+.booking-actions button:first-child:hover {
+    background-color: #5a189a;
+}
+
+/* Cancel */
+.booking-actions button:last-child {
+    background-color: #e0e0e0;
+}
+
+.booking-actions button:last-child:hover {
+    background-color: #cfcfcf;
+}

@@ -1,0 +1,30 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f3ff; /* soft violet background */
+}
+
+/* Right side content */
+.admin-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f3ff;
+    overflow-y: auto;
+}
+
+/* Page titles */
+.admin-content h2 {
+    margin-bottom: 20px;
+    color: #3c096c;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* Card-like containers (used later) */
+.admin-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(90, 24, 154, 0.12);
+    margin-bottom: 25px;
+}

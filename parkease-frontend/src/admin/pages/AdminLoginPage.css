@@ -1,0 +1,65 @@
+.admin-login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a0dad, #8a2be2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-login-card {
+    background-color: #ffffff;
+    width: 360px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.admin-login-card h2 {
+    margin-bottom: 25px;
+    color: #5a189a;
+    font-weight: 700;
+}
+
+.admin-login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-login-card input {
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.admin-login-card input:focus {
+    border-color: #8a2be2;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.15);
+}
+
+.admin-login-card button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6a0dad, #8a2be2);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+}
+
+.admin-login-card button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 15px rgba(138, 43, 226, 0.3);
+}

@@ -1,45 +1,55 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+
 import AdminLoginPage from "./admin/pages/AdminLoginPage";
-import AdminDashboardPage from "./admin/pages/AdminDashboardPage";
-import AdminAreasPage from "./admin/pages/AdminAreasPage";
-import AdminBookingsPage from "./admin/pages/AdminBookingsPage";
-import AdminLayout from "./admin/layout/AdminLayout";
+import AdminRoutes from "./admin/routes/AdminRoutes";
+
+import UserRoutes from "./user/routes/UserRoutes";
+
+import UserProtectedRoute from "./components/UserProtectedRoute";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
-import AdminAreaSlotsPage from "./admin/pages/AdminAreaSlotsPage";
+import SlotsPage from "./user/pages/SlotsPage";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-
+                {/* Public */}
+                <Route path="/" element={<MainPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
                 <Route path="/admin/login" element={<AdminLoginPage />} />
 
-
+                {/* User */}
                 <Route
-                    path="/admin"
+                    path="/user/*"
+                    element={
+                        <UserProtectedRoute>
+                            <UserRoutes />
+                        </UserProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/slots/:areaId"
+                    element={
+                        <UserProtectedRoute>
+                            <SlotsPage />
+                        </UserProtectedRoute>
+                    }
+                />
+
+                {/* Admin */}
+                <Route
+                    path="/admin/*"
                     element={
                         <AdminProtectedRoute>
-                            <AdminLayout />
+                            <AdminRoutes />
                         </AdminProtectedRoute>
                     }
-                >
-
-
-                    <Route
-                        path="/admin/areas/:areaId/slots"
-                        element={
-                            <AdminProtectedRoute>
-                                <AdminAreaSlotsPage />
-                            </AdminProtectedRoute>
-                        }
-                    />
-
-                    <Route path="dashboard" element={<AdminDashboardPage />} />
-                    <Route path="areas" element={<AdminAreasPage />} />
-                    <Route path="bookings" element={<AdminBookingsPage />} />
-                </Route>
-
+                />
             </Routes>
         </BrowserRouter>
     );

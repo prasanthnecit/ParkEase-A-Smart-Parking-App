@@ -7,6 +7,7 @@ import com.parkease.util.SecurityUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 @RestController
 @RequestMapping("/api/bookings")
@@ -38,11 +39,11 @@ public class BookingController {
         Booking booking = new Booking(
                 userIdentifier,
                 request.getSlotId(),
+                request.getSlotCode(),
                 request.getStartTime(),
                 request.getEndTime(),
                 request.getVehicleType(),
                 request.getAmount()
-
         );
         //System.out.println(request.getAmount());
         bookingRepository.save(booking);
@@ -54,6 +55,7 @@ public class BookingController {
     public List<Booking> getMyBookings() {
 
         String userEmail = SecurityUtil.getCurrentUserIdentifier();
+        List<Booking> l=new ArrayList<>(bookingRepository.findByUserId(userEmail));
 
         return bookingRepository.findByUserId(userEmail);
     }

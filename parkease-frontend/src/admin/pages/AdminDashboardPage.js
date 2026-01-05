@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import "./AdminDashboardPage.css";
 
 export default function AdminDashboardPage() {
     const [areas, setAreas] = useState([]);
@@ -58,10 +59,10 @@ export default function AdminDashboardPage() {
     if (loading) return <p>Loading dashboard...</p>;
 
     return (
-        <div>
+        <div className="admin-dashboard">
             <h2>Admin Dashboard</h2>
 
-            <table border="1" cellPadding="10" cellSpacing="0">
+            <table>
                 <thead>
                 <tr>
                     <th>Area</th>
@@ -92,4 +93,5 @@ export default function AdminDashboardPage() {
             </table>
         </div>
     );
+
 }

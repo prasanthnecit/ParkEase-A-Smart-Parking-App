@@ -1,12 +1,25 @@
-export function setToken(token) {
+import { jwtDecode } from "jwt-decode";
+
+export const setToken = (token) => {
     localStorage.setItem("token", token);
-}
+};
 
-export function getToken() {
+export const getToken = () => {
     return localStorage.getItem("token");
-}
+};
 
-export function logout() {
+export const logout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/admin/login";
-}
+};
+
+export const getRoleFromToken = () => {
+    const token = getToken();
+    if (!token) return null;
+
+    try {
+        const decoded = jwtDecode(token);
+        return decoded.role;
+    } catch {
+        return null;
+    }
+};

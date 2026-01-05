@@ -1,35 +1,39 @@
 import { useState } from "react";
+import api from "../services/api";
+import { setToken } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
-import { setToken } from "../../utils/auth";
-import "./AdminLoginPage.css";
+import "./LoginPage.css";
 
-export default function AdminLoginPage() {
+export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const login = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        const res = await api.post("/auth/login", {
-            email,
-            password
-        });
+        try {
+            const res = await api.post("/auth/login", {
+                email,
+                password
+            });
 
-        setToken(res.data.token);
-        navigate("/admin/dashboard");
+            setToken(res.data.token);
+            navigate("/user");
+        } catch {
+            alert("Invalid credentials");
+        }
     };
 
     return (
-        <div className="admin-login-container">
-            <div className="admin-login-card">
-                <h2>Admin Login</h2>
+        <div className="login-container">
+            <div className="login-card">
+                <h2 className="login-title">User Login</h2>
 
-                <form onSubmit={login}>
+                <form onSubmit={handleLogin}>
                     <input
                         type="email"
-                        placeholder="Admin Email"
+                        placeholder="Email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         required

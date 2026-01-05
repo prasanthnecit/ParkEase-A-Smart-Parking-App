@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import "./AdminBookingsPage.css";
 
 export default function AdminBookingsPage() {
     const [bookings, setBookings] = useState([]);
@@ -18,7 +19,6 @@ export default function AdminBookingsPage() {
 
     const loadAllBookings = async () => {
         const res = await api.get("/admin/bookings");
-        console.log(res.data);
         setBookings(res.data);
     };
 
@@ -27,7 +27,6 @@ export default function AdminBookingsPage() {
             loadAllBookings();
             return;
         }
-
         const res = await api.get(`/admin/bookings/area/${areaId}`);
         setBookings(res.data);
     };
@@ -39,11 +38,11 @@ export default function AdminBookingsPage() {
     };
 
     return (
-        <div>
+        <div className="admin-bookings">
             <h2>Booking Overview</h2>
 
-            <div style={{ marginBottom: "20px" }}>
-                <label>Filter by Area: </label>
+            <div className="booking-filter">
+                <label>Filter by Area:</label>
                 <select value={selectedArea} onChange={handleAreaChange}>
                     <option value="">All Areas</option>
                     {areas.map(area => (
@@ -54,46 +53,41 @@ export default function AdminBookingsPage() {
                 </select>
             </div>
 
-            <table border="1" cellPadding="10" width="100%">
-                <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Slot ID</th>
-                    <th>Slot Code</th>
-                    <th>Start Time</th>
-                    <th>End Time</th>
-                    <th>Vehicle</th>
-                    <th>Amount</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                {bookings.length === 0 ? (
+            <div className="table-wrapper">
+                <table className="booking-table">
+                    <thead>
                     <tr>
-                        <td colSpan="6" align="center">
-                            No bookings found
-                        </td>
+                        <th>User</th>
+                        <th>Slot Code</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Vehicle</th>
+                        <th>Amount</th>
                     </tr>
-                ) : (
-                    bookings.map(booking => (
-                        <tr key={booking.id}>
-                            <td>{booking.userId}</td>
-                            <td>{booking.slotId}</td>
-                            <td>{booking.slotCode}</td>
+                    </thead>
 
-                            <td>
-                                {new Date(booking.startTime).toLocaleString()}
+                    <tbody>
+                    {bookings.length === 0 ? (
+                        <tr>
+                            <td colSpan="6" className="no-bookings">
+                                No bookings found
                             </td>
-                            <td>
-                                {new Date(booking.endTime).toLocaleString()}
-                            </td>
-                            <td>{booking.vehicleType}</td>
-                            <td>₹{booking.amount}</td>
                         </tr>
-                    ))
-                )}
-                </tbody>
-            </table>
+                    ) : (
+                        bookings.map(booking => (
+                            <tr key={booking.id}>
+                                <td>{booking.userId}</td>
+                                <td>{booking.slotCode}</td>
+                                <td>{new Date(booking.startTime).toLocaleString()}</td>
+                                <td>{new Date(booking.endTime).toLocaleString()}</td>
+                                <td>{booking.vehicleType}</td>
+                                <td className="amount">₹{booking.amount}</td>
+                            </tr>
+                        ))
+                    )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

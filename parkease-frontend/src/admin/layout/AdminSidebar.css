@@ -1,0 +1,77 @@
+.admin-sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #5a189a, #7b2cbf);
+    color: #ffffff;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.admin-sidebar h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation links */
+.admin-sidebar a {
+    text-decoration: none;
+    color: #e0d7ff;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Hover effect */
+.admin-sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Active route */
+.admin-sidebar a.active {
+    background-color: #ffffff;
+    color: #5a189a;
+    font-weight: 600;
+}
+
+/* Push logout button to bottom */
+.admin-sidebar button {
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #ff4d6d;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Logout hover */
+.admin-sidebar button:hover {
+    background-color: #e63950;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Logout active */
+.admin-sidebar button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

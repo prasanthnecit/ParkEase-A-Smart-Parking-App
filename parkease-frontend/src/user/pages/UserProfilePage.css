@@ -1,0 +1,40 @@
+/* Page wrapper */
+.profile-page {
+    max-width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.profile-page h2 {
+    color: #4a148c;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* Profile row */
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+/* Label */
+.profile-label {
+    font-weight: 600;
+    color: #555;
+}
+
+/* Value */
+.profile-value {
+    color: #333;
+}
+
+/* Last row no border */
+.profile-row:last-child {
+    border-bottom: none;
+}

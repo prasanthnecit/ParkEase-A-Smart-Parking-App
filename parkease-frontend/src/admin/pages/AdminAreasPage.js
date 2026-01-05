@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
-
+import "./AdminAreasPage.css";
 
 export default function AdminAreasPage() {
     const navigate = useNavigate();
@@ -21,10 +21,7 @@ export default function AdminAreasPage() {
     const createArea = async (e) => {
         e.preventDefault();
 
-        await api.post("/admin/areas", {
-            name,
-            location
-        });
+        await api.post("/admin/areas", { name, location });
 
         setName("");
         setLocation("");
@@ -37,10 +34,10 @@ export default function AdminAreasPage() {
     };
 
     return (
-        <div>
+        <div className="admin-areas">
             <h2>Manage Parking Areas</h2>
 
-            <form onSubmit={createArea}>
+            <form className="area-form" onSubmit={createArea}>
                 <input
                     placeholder="Area Name"
                     value={name}
@@ -54,26 +51,30 @@ export default function AdminAreasPage() {
                 <button type="submit">Add Area</button>
             </form>
 
-            <hr />
-
-            <ul>
+            <ul className="area-list">
                 {areas.map(area => (
-                    <li key={area.id}>
-                        <b>{area.name}</b> — {area.location}
-                        <button
-                            style={{ marginLeft: 10 }}
-                            onClick={() => deleteArea(area.id)}
-                        >
-                            Delete
-                        </button>
-                        <button
-                            onClick={() => navigate(`/admin/areas/${area.id}/slots`)}
-                        >
-                            Manage Slots
-                        </button>
+                    <li key={area.id} className="area-item">
+                        <div>
+                            <b>{area.name}</b>
+                            <span>{area.location}</span>
+                        </div>
 
+                        <div className="area-actions">
+                            <button
+                                className="danger"
+                                onClick={() => deleteArea(area.id)}
+                            >
+                                Delete
+                            </button>
+
+                            <button
+                                className="primary"
+                                onClick={() => navigate(`/admin/areas/${area.id}/slots`)}
+                            >
+                                Manage Slots
+                            </button>
+                        </div>
                     </li>
-
                 ))}
             </ul>
         </div>

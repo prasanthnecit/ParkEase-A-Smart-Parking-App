@@ -1,0 +1,40 @@
+/* Page heading */
+.booking-history h2 {
+    color: #4a148c;
+    margin-bottom: 20px;
+}
+
+/* Empty state */
+.booking-history p {
+    font-size: 14px;
+}
+
+/* Booking card */
+.booking-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #7b2cbf;
+}
+
+/* Card rows */
+.booking-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.booking-row b {
+    color: #4a148c;
+}
+
+/* Amount highlight */
+.booking-amount {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d033b;
+}

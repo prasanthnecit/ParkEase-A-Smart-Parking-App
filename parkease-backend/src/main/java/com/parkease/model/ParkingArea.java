@@ -18,7 +18,6 @@ public class ParkingArea {
         this.name = name;
         this.location = location;
     }
-
     // Getters & Setters
     public String getId() {
         return id;

@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 
 public class SlotStatusResponse {
 
-    private String slotId;
-    private String slotCode;
-    private String status; // AVAILABLE / BOOKED
+    private final String slotId;
+    private final String slotCode;
+    private final String status; // AVAILABLE / BOOKED
 
-    private LocalDateTime bookedFrom;
-    private LocalDateTime bookedTo;
+    private final LocalDateTime bookedFrom;
+    private final LocalDateTime bookedTo;
 
     public SlotStatusResponse(String slotId,
                               String slotCode,

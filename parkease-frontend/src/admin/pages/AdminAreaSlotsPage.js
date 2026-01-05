@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
+import "./AdminAreaSlotsPage.css";
 
 export default function AdminAreaSlotsPage() {
     const { areaId } = useParams();
@@ -8,18 +9,15 @@ export default function AdminAreaSlotsPage() {
     const [slots, setSlots] = useState([]);
     const [slotCodesInput, setSlotCodesInput] = useState("");
 
-    // Load slots for this area
     useEffect(() => {
         fetchSlots();
     }, []);
 
     const fetchSlots = async () => {
         const res = await api.get(`/admin/slots/area/${areaId}`);
-        console.log(res.data);
         setSlots(res.data);
     };
 
-    // Bulk create slots
     const createSlots = async () => {
         if (!slotCodesInput.trim()) return;
 
@@ -37,7 +35,6 @@ export default function AdminAreaSlotsPage() {
         fetchSlots();
     };
 
-    // Enable / Disable slot
     const toggleSlotStatus = async (slotId, active) => {
         await api.put(`/admin/slots/${slotId}/status`, {
             active: !active
@@ -45,7 +42,6 @@ export default function AdminAreaSlotsPage() {
         fetchSlots();
     };
 
-    // Delete slot
     const deleteSlot = async (slotId) => {
         if (!window.confirm("Delete this slot?")) return;
         await api.delete(`/admin/slots/${slotId}`);
@@ -53,53 +49,91 @@ export default function AdminAreaSlotsPage() {
     };
 
     return (
-        <div>
+        <div className="admin-slots">
             <h2>Slot Management</h2>
 
-            <div style={{ marginBottom: "20px" }}>
+            <div className="slot-create-box">
                 <input
                     type="text"
-                    placeholder="Enter slot codes (A1,A2,A3)"
+                    placeholder="Enter slot codes (A1, A2, A3)"
                     value={slotCodesInput}
                     onChange={(e) => setSlotCodesInput(e.target.value)}
                 />
                 <button onClick={createSlots}>Add Slots</button>
             </div>
 
-            <table border="1" cellPadding="10">
-                <thead>
-                <tr>
-                    <th>Slot Code</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                {slots.map(slot => (
-                    <tr key={slot.id}>
-                        <td>{slot.slotCode}</td>
-                        <td>{slot.active ? "Active" : "Inactive"}</td>
-                        <td>
-                            <button
-                                onClick={() =>
-                                    toggleSlotStatus(slot.id, slot.active)
-                                }
-                            >
-                                {slot.active ? "Disable" : "Enable"}
-                            </button>
-
-                            <button
-                                onClick={() => deleteSlot(slot.id)}
-                                style={{ marginLeft: "10px" }}
-                            >
-                                Delete
-                            </button>
-                        </td>
+            <div className="table-wrapper">
+                <table className="slots-table">
+                    <thead>
+                    <tr>
+                        <th>Slot Code</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                    {slots.length === 0 ? (
+                        <tr>
+                            <td colSpan="3" className="no-slots">
+                                No slots found
+                            </td>
+                        </tr>
+                    ) : (
+                        slots.map(slot => (
+                            <tr key={slot.id}>
+                                <td className="slot-code">
+                                    {slot.slotCode}
+                                </td>
+
+                                <td>
+                                        <span
+                                            className={
+                                                slot.active
+                                                    ? "status active"
+                                                    : "status inactive"
+                                            }
+                                        >
+                                            {slot.active
+                                                ? "Active"
+                                                : "Inactive"}
+                                        </span>
+                                </td>
+
+                                <td className="actions">
+                                    <button
+                                        className={
+                                            slot.active
+                                                ? "btn-warning"
+                                                : "btn-success"
+                                        }
+                                        onClick={() =>
+                                            toggleSlotStatus(
+                                                slot.id,
+                                                slot.active
+                                            )
+                                        }
+                                    >
+                                        {slot.active
+                                            ? "Disable"
+                                            : "Enable"}
+                                    </button>
+
+                                    <button
+                                        className="btn-danger"
+                                        onClick={() =>
+                                            deleteSlot(slot.id)
+                                        }
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                    )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }
