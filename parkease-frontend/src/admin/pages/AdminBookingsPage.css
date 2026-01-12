@@ -1,0 +1,220 @@
+/* ================= ROOT ================= */
+.admin-bookings {
+    padding: 28px;
+    font-family: "Inter", system-ui, Arial, sans-serif;
+    color: #111827;
+    background: transparent;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #4c1d95;
+}
+
+/* ================= FILTER ================= */
+.filter-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 16px;
+    width: fit-content;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.filter-card label {
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Styled dropdown */
+.styled-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding: 10px 40px 10px 16px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='gray' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+}
+
+.styled-select:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+/* ================= OVERALL REPORT ================= */
+.overall-report {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+    margin-bottom: 48px;
+}
+
+.overall-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.overall-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* ===== KEY FIX: PARALLEL METRICS ===== */
+.overall-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: #f9fafb;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.metric-card span {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.metric-card strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* ================= BUTTONS ================= */
+.download-btn {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.download-btn.small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.download-btn:hover {
+    opacity: 0.92;
+}
+
+/* ================= MONTH SECTION ================= */
+.month-section {
+    margin-bottom: 48px;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.month-header h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4c1d95;
+}
+
+.month-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Revenue chip */
+.revenue-chip {
+    background: #dcfce7;
+    color: #166534;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+/* ================= TABLE ================= */
+.table-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.booking-table thead th {
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6b7280;
+    padding: 12px 16px;
+    letter-spacing: 0.05em;
+}
+
+.booking-table tbody tr {
+    background: #f9fafb;
+    border-radius: 14px;
+    transition: transform 0.15s ease;
+}
+
+.booking-table tbody tr:hover {
+    transform: translateY(-2px);
+}
+
+.booking-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #111827;
+}
+
+.amount {
+    font-weight: 800;
+    color: #16a34a;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .overall-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .month-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

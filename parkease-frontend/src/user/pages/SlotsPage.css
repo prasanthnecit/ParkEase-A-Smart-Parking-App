@@ -1,0 +1,212 @@
+/* ================= ROOT ================= */
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+.page h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #4c1d95;
+    margin-bottom: 20px;
+}
+
+/* ================= LEGEND ================= */
+.slots-legend {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #374151;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.legend-available {
+    background: #22c55e;
+}
+
+.legend-booked {
+    background: #e5e7eb;
+}
+
+.legend-selected {
+    background: #6366f1;
+}
+
+/* ================= SLOT GRID ================= */
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+/* ================= SLOT TILE ================= */
+.slot-card {
+    border-radius: 14px;
+    padding: 18px 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.slot-card h4 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.slot-card p {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ================= AVAILABLE ================= */
+.slot-available {
+    background: #ecfdf5;
+    border: 2px solid #22c55e;
+}
+
+.slot-available h4 {
+    color: #166534;
+}
+
+.slot-available p {
+    color: #15803d;
+}
+
+.slot-available:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(34,197,94,0.35);
+}
+
+/* ================= BOOKED ================= */
+.slot-booked {
+    background: #f3f4f6;
+    border: 2px solid #e5e7eb;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.slot-booked h4,
+.slot-booked p {
+    color: #9ca3af;
+}
+
+/* ================= SELECTED ================= */
+.slot-selected {
+    background: #eef2ff !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.35);
+}
+
+.slot-selected h4 {
+    color: #3730a3;
+}
+
+.slot-selected::after {
+    content: "✓";
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #6366f1;
+}
+
+/* ================= BOOKING CARD ================= */
+.booking-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    max-width: 420px;
+    box-shadow: 0 20px 44px rgba(0,0,0,0.2);
+}
+
+.booking-card h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #4c1d95;
+    margin-bottom: 18px;
+}
+
+/* ================= FORM ================= */
+.booking-card label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    display: block;
+    margin-top: 12px;
+}
+
+.booking-card input,
+.booking-card select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+.booking-card input:focus,
+.booking-card select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+}
+
+/* ================= ACTIONS ================= */
+.booking-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.booking-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 999px;
+    border: none;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* Confirm */
+.booking-actions button:first-child {
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    color: #ffffff;
+}
+
+.booking-actions button:first-child:hover {
+    box-shadow: 0 10px 26px rgba(99,102,241,0.35);
+}
+
+/* Cancel */
+.booking-actions button:last-child {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+    .slots-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+}

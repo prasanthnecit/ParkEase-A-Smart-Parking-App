@@ -1,0 +1,16 @@
+#Git Ignore
+# IDE files
+.idea/
+.vscode/
+
+# Backend
+parkease-backend/target/
+*.log
+
+# Frontend
+parkease-frontend/node_modules/
+parkease-frontend/build/
+
+# OS files 
+.DS_Store
+Thumbs.db

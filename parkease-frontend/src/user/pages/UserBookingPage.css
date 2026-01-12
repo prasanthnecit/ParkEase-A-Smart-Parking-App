@@ -1,0 +1,91 @@
+/* ================= ROOT ================= */
+.parking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+/* Title */
+.parking-container h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #4c1d95;
+    margin-bottom: 28px;
+}
+
+/* ================= GRID ================= */
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* ================= CARD ================= */
+.parking-card {
+    background: #ffffff;
+    padding: 22px 24px;
+    border-radius: 22px;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Violet outline (existing class preserved) */
+.violet-outline {
+    border: 2px solid #ede9fe;
+}
+
+/* Hover */
+.parking-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
+    border-color: #7c3aed;
+}
+
+/* ================= CONTENT ================= */
+.parking-card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #4c1d95;
+    margin-bottom: 6px;
+}
+
+.parking-card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 14px;
+}
+
+/* ================= ACTION ================= */
+.action-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #4f46e5;
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.parking-card:hover .action-text {
+    transform: translateX(6px);
+}
+
+/* ================= EMPTY STATE ================= */
+.parking-grid:empty::after {
+    content: "No parking areas available";
+    font-size: 16px;
+    color: #9ca3af;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 640px) {
+    .parking-container {
+        padding: 18px;
+    }
+
+    .parking-container h2 {
+        font-size: 22px;
+    }
+}

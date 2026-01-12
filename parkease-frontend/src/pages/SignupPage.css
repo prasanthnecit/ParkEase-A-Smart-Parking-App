@@ -1,0 +1,93 @@
+/* ================= ROOT ================= */
+.user-signup-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb;
+    font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+/* ================= CARD ================= */
+.user-signup-card {
+    background: #ffffff;
+    padding: 36px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.user-signup-card h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #4c1d95;
+    margin-bottom: 6px;
+}
+
+.signup-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 28px;
+}
+
+/* ================= FORM ================= */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    transition: border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* ================= BUTTON ================= */
+.user-signup-card button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 0.2s ease,
+    transform 0.15s ease;
+}
+
+.user-signup-card button:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+.user-signup-card button:active {
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+    .user-signup-card {
+        padding: 28px;
+    }
+}

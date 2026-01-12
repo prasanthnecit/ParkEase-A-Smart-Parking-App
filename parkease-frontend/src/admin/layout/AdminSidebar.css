@@ -1,0 +1,78 @@
+/* ================= ROOT ================= */
+.admin-sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 24px 18px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", system-ui, Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+.sidebar-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4c1d95;
+}
+
+/* ================= NAV ================= */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    transition: background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Hover */
+.sidebar-nav a:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+/* Active */
+.sidebar-nav a.active {
+    background: #ede9fe;
+    color: #4c1d95;
+}
+
+/* ================= LOGOUT ================= */
+.logout-btn {
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    background: #fee2e2;
+    color: #991b1b;
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.logout-btn:hover {
+    background: #fecaca;
+    transform: translateY(-1px);
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+}
